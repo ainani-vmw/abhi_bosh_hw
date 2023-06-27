@@ -1,0 +1,9 @@
+---
+name: go-tournament
+
+templates:
+    ctl.sh: ctl.sh
+    fetch.sh: bin/run
+    test.sh: test.sh
+
+properties: {}

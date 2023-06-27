@@ -1,0 +1,31 @@
+---
+name: bosh_shell_deployment
+
+releases:
+- name: shell-bosh
+  version: 0+dev.1
+
+stemcells:
+- alias: default
+  os: ubuntu-jammy
+  version: latest
+
+update:
+  canaries: 1
+  max_in_flight: 1
+  canary_watch_time: 1000-30000
+  update_watch_time: 1000-30000
+
+instance_groups:
+- name: bosh_shell_deployment
+  azs:
+  - us-central1-f
+  instances: 1
+  jobs:
+  - name: go-tournament
+    release: shell-bosh
+    properties: {}
+  vm_type: e2-medium
+  stemcell: default
+  networks:
+  - name: yankeesblue-pas-subnet

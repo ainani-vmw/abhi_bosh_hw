@@ -1,0 +1,5 @@
+check process go-tournament
+  with pidfile /var/vcap/sys/run/go-tournament/pid
+  start program "/usr/bin/bash /var/vcap/jobs/go-tournament/ctl.sh start"
+  stop program "/usr/bin/bash /var/vcap/jobs/go-tournament/ctl.sh stop"
+  group vcap
